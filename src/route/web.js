@@ -108,6 +108,18 @@ let initwebRoutes = (app) => {
     router.get('/api/get-all-shopcart-by-userId', middlewareControllers.verifyTokenUser, shopCartController.getAllShopCartByUserId)
     router.delete('/api/delete-item-shopcart', middlewareControllers.verifyTokenUser, shopCartController.deleteItemShopCart)
 
+    //=================API ORDER=============================//
+    router.post('/api/create-new-order', middlewareControllers.verifyTokenUser, orderController.createNewOrder)
+    router.get('/api/get-all-order', orderController.getAllOrders)
+    router.get('/api/get-detail-order', orderController.getDetailOrderById)
+    router.put('/api/update-status-order', middlewareControllers.verifyTokenUser, orderController.updateStatusOrder)
+
+    //=================API ADDRESS USER ======================//
+    router.post('/api/create-new-address-user', middlewareControllers.verifyTokenUser, addressUserController.createNewAddressUser)
+    router.get('/api/get-all-address-user', middlewareControllers.verifyTokenUser, addressUserController.getAllAddressUserByUserId)
+    router.delete('/api/delete-address-user', middlewareControllers.verifyTokenUser, addressUserController.deleteAddressUser)
+    router.put('/api/edit-address-user', middlewareControllers.verifyTokenUser, addressUserController.editAddressUser)
+    router.get('/api/get-detail-address-user-by-id', middlewareControllers.verifyTokenUser, addressUserController.getDetailAddressUserById)
 
     //=================API ADDRESS USER ======================//
     router.post('/api/create-new-address-user', middlewareControllers.verifyTokenUser, addressUserController.createNewAddressUser)
